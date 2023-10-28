@@ -1,10 +1,10 @@
 import { Book } from "../../Model/Book";
 import { RootContainer } from "./BookDetails-styles";
 
-export function BookDetails(props:{book : Book}) 
+export function BookDetails(props:{book : Book, visible : boolean}) 
 {
  return (
-  <RootContainer>
+  <RootContainer className={props.visible ? "visible" : ""}>
     <table>
       <thead>
         <tr>

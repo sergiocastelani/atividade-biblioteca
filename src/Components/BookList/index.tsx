@@ -25,6 +25,11 @@ export function BookList() {
     navigate(`/edit/${bookId}`);
   }
 
+  function addBook()
+  {
+    navigate("/new");
+  }
+
   return (
     <RootContainer>
       <table>
@@ -63,6 +68,14 @@ export function BookList() {
             )
           ])}
         </tbody>
+
+        <tfoot>
+          <tr>
+            <td colSpan={4}>
+              <button onClick={addBook}>Adicionar Livro</button>
+            </td>
+          </tr>
+        </tfoot>
       </table>
     </RootContainer>
   )

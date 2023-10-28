@@ -23,6 +23,10 @@ export function BookForm()
 
   function saveBook()
   {
+    const form = document.getElementById("book-form") as HTMLFormElement;
+    if (! form?.reportValidity())
+      return;
+
     if (bookId)
     {
       const index = books.findIndex(b => b.id === bookId);
@@ -53,7 +57,7 @@ export function BookForm()
   }, [bookId]);
 
   return (
-    <div>
+    <form id="book-form">
       <div>
         <label>ID: </label><span>{book.id}</span><br/>
 
@@ -140,6 +144,6 @@ export function BookForm()
       </div>
 
       <button onClick={saveBook}>Salvar</button>
-    </div>
+    </form>
   );
 }

@@ -81,7 +81,7 @@ export function BookForm()
         />
       </div>
       <div>
-        <label>Ano de Publicação</label>
+        <label>Ano de Publicação<span>*</span></label>
         <input 
           type="number" 
           className="form-control" 
@@ -90,26 +90,30 @@ export function BookForm()
           min="1600" 
           max="2023" 
           id="publishYear"
+          required 
           onChange={e => setBook({...book, publishYear: e.target.valueAsNumber})}
         />
       </div>
       <div>
-        <label>Data de Cadastro</label>
+        <label>Data de Cadastro<span>*</span></label>
         <input 
           type="date" 
           className="form-control" 
           name="registrationDate" 
           id="registrationDate" 
+          required
+          readOnly={bookId !== undefined}
           value={formatDate(book.registrationDate)}
           onChange={e => setBook({...book, registrationDate: e.target.valueAsDate || new Date()})}
         />
       </div>
       <div>
-        <label>Gênero</label>
+        <label>Gênero<span>*</span></label>
         <select 
           className="form-control" 
           name="class" 
           id="class" 
+          required 
           value={book.class}
           onChange={e => setBook({...book, class: e.target.value as BookClass})}
         >
@@ -119,13 +123,14 @@ export function BookForm()
         </select>
       </div>
       <div>
-        <label>Descrição</label>
+        <label>Descrição<span>*</span></label>
         <textarea 
           className="form-control" 
           name="description" 
           maxLength={300} 
           rows={10} 
           id="description"
+          required 
           value={book.description}
           onChange={e => setBook({...book, description: e.target.value})}
         >

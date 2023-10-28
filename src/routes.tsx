@@ -14,7 +14,11 @@ export const router = createBrowserRouter([
         element: <BookList/>
       },
       {
-        path: "/:id",
+        path: "/edit/:bookId",
+        element: <BookForm/>
+      },
+      {
+        path: "/new",
         element: <BookForm/>
       },
     ]

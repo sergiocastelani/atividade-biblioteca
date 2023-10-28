@@ -1,11 +1,25 @@
+import { v4 as uuidv4 } from 'uuid';
+
+export type BookClass = 'Épico' | 'Lírico' | 'Dramático';
+
 export interface IBook {
   id: string,
   title: string,
   author: string,
   publishYear: Number,
   registrationDate: Date,
-  class: 'Épico' | 'Lírico' | 'Dramático',
+  class: BookClass,
   description: string
+}
+
+export class Book implements IBook {
+  id = uuidv4();
+  title = "";
+  author = "";
+  publishYear = 1900;
+  registrationDate = new Date();
+  class: BookClass = "Épico";
+  description = "";
 }
 
 export function initialBooks() : IBook[] {

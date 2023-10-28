@@ -1,10 +1,12 @@
 import { useContext, useState } from "react";
 import { BookDetails } from "./BookDetails";
 import {RootContainer} from './BookList-styles';
-import {FaRegEye} from 'react-icons/fa';
+import {FaPen, FaRegEye} from 'react-icons/fa';
 import { BooksContext } from "../../Context/books-context";
+import { useNavigate } from "react-router-dom";
 
 export function BookList() {
+  const navigate = useNavigate();
   const {books} = useContext(BooksContext);
 
   const [detailedBooks, setDetailedBooks] = useState([] as string[]);
@@ -16,6 +18,11 @@ export function BookList() {
       newList.push(bookId);
 
     setDetailedBooks(newList);
+  }
+
+  function editBook(bookId: string)
+  {
+    navigate(`/edit/${bookId}`);
   }
 
   return (
@@ -40,6 +47,9 @@ export function BookList() {
                 <td>
                   <button onClick={() => toggleDetails(book.id)}>
                     <FaRegEye/>
+                  </button>
+                  <button onClick={() => editBook(book.id)}>
+                    <FaPen/>
                   </button>
                 </td>
               </tr>

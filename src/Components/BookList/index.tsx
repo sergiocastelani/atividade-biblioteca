@@ -1,5 +1,4 @@
 import { useContext, useState } from "react";
-import { IBook } from "../../Model/Book";
 import { BookDetails } from "./BookDetails";
 import {RootContainer} from './BookList-styles';
 import {FaRegEye} from 'react-icons/fa';
@@ -37,7 +36,7 @@ export function BookList() {
               <tr key={book.id}>
                 <td>{book.title}</td>
                 <td>{book.author}</td>
-                <td>{book.publishDate.getFullYear()}</td>
+                <td>{book.publishYear.toString()}</td>
                 <td>
                   <button onClick={() => toggleDetails(book.id)}>
                     <FaRegEye/>

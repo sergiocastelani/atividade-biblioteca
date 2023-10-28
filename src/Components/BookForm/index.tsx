@@ -55,6 +55,8 @@ export function BookForm()
   return (
     <div>
       <div>
+        <label>ID: </label><span>{book.id}</span><br/>
+
         <label>Título<span>*</span></label>
         <input 
           type="text" 

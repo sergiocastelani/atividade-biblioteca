@@ -1,13 +1,13 @@
 import { useContext, useState } from "react";
 import { BookDetails } from "./BookDetails";
 import {RootContainer} from './BookList-styles';
-import {FaPen, FaRegEye} from 'react-icons/fa';
+import {FaPen, FaRegEye, FaTrashAlt} from 'react-icons/fa';
 import { BooksContext } from "../../Context/books-context";
 import { useNavigate } from "react-router-dom";
 
 export function BookList() {
   const navigate = useNavigate();
-  const {books} = useContext(BooksContext);
+  const {books, setBooks} = useContext(BooksContext);
 
   const [detailedBooks, setDetailedBooks] = useState([] as string[]);
 
@@ -28,6 +28,12 @@ export function BookList() {
   function addBook()
   {
     navigate("/new");
+  }
+
+  function deleteBook(bookId: string, bookTitle: string)
+  {
+    if(confirm(`Deseja realmenta apagar o livro '${bookTitle}'?`))
+    setBooks(books.filter(b => b.id !== bookId));
   }
 
   return (
@@ -55,6 +61,9 @@ export function BookList() {
                   </button>
                   <button onClick={() => editBook(book.id)}>
                     <FaPen/>
+                  </button>
+                  <button onClick={() => deleteBook(book.id, book.title)}>
+                    <FaTrashAlt/>
                   </button>
                 </td>
               </tr>

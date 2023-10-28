@@ -1,10 +1,13 @@
-import { useState } from "react";
-import { Book } from "../../Model/Book";
+import { useContext, useState } from "react";
+import { IBook } from "../../Model/Book";
 import { BookDetails } from "./BookDetails";
 import {RootContainer} from './BookList-styles';
 import {FaRegEye} from 'react-icons/fa';
+import { BooksContext } from "../../Context/books-context";
 
-export function BookList(props:{books: Book[]}) {
+export function BookList() {
+  const {books} = useContext(BooksContext);
+
   const [detailedBooks, setDetailedBooks] = useState([] as string[]);
 
   function toggleDetails(bookId: string) 
@@ -29,7 +32,7 @@ export function BookList(props:{books: Book[]}) {
         </thead>
 
         <tbody>
-          {props.books.map(book => [
+          {books.map(book => [
             (
               <tr key={book.id}>
                 <td>{book.title}</td>

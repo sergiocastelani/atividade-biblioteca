@@ -1,10 +1,10 @@
-import { Book } from "../../Model/Book";
-import { RootContainer } from "./BookDetails-styles";
+import { IBook } from "../../Model/Book";
+import { DetailsContainer } from "./BookDetails-styles";
 
-export function BookDetails(props:{book : Book, visible : boolean}) 
+export function BookDetails(props:{book : IBook, visible : boolean}) 
 {
  return (
-  <RootContainer className={props.visible ? "visible" : ""}>
+  <DetailsContainer className={props.visible ? "visible" : ""}>
     <table>
       <thead>
         <tr>
@@ -23,7 +23,7 @@ export function BookDetails(props:{book : Book, visible : boolean})
       </tbody>
 
     </table>
-  </RootContainer>
+  </DetailsContainer>
 
  );
 }

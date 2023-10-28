@@ -1,4 +1,4 @@
-export interface Book {
+export interface IBook {
   id: string,
   title: string,
   author: string,
@@ -8,7 +8,7 @@ export interface Book {
   description: string
 }
 
-export function initialBooks() : Book[] {
+export function initialBooks() : IBook[] {
   return [
     {
       id: '2ec61d60-67e5-40c1-b8df-43053b05b51f',

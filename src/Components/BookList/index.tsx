@@ -72,7 +72,7 @@ export function BookList() {
             ),
             (
               <tr key={'_' + book.id}>
-                <td colSpan={3}>
+                <td colSpan={4}>
                   <BookDetails book={book} visible={detailedBooks.some(bookId => bookId === book.id)} />
                 </td>
               </tr>

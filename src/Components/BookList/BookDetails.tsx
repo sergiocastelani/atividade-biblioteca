@@ -5,24 +5,12 @@ export function BookDetails(props:{book : IBook, visible : boolean})
 {
  return (
   <DetailsContainer className={props.visible ? "visible" : ""}>
-    <table>
-      <thead>
-        <tr>
-          <th>Cadastro</th>
-          <th>Gênero</th>
-          <th>Descrição</th>
-        </tr>
-      </thead>
-
-      <tbody>
-        <tr>
-          <td>{props.book.registrationDate.getFullYear()}</td>
-          <td>{props.book.class}</td>
-          <td>{props.book.description}</td>
-        </tr>
-      </tbody>
-
-    </table>
+    <h4>Cadastro</h4>
+    <p>{props.book.registrationDate.getFullYear()}</p>
+    <h4>Gênero</h4>
+    <p>{props.book.class}</p>
+    <h4>Descrição</h4>
+    <p>{props.book.description}</p>
   </DetailsContainer>
 
  );

@@ -11,10 +11,11 @@ export const RootContainer = styled.div`
     border-radius: 0.5em;
     border-spacing: 0;
     border-collapse: separate;
-    padding: 1em;
+    padding: 0;
   }
 
   & > table > thead > tr {
+    font-size: 2em;
   }
 
   & > table > thead > tr > th {

@@ -1,6 +1,6 @@
 import { useContext, useState } from "react";
 import { BookDetails } from "./BookDetails";
-import {ButtonsCell, RootContainer} from './BookList-styles';
+import {ActionButtonsCell, RootContainer, StyledButton} from './BookList-styles';
 import {FaPen, FaRegEye, FaTrashAlt} from 'react-icons/fa';
 import { BooksContext } from "../../Context/books-context";
 import { useNavigate } from "react-router-dom";
@@ -56,17 +56,17 @@ export function BookList() {
                 <td>{book.author}</td>
                 <td>{book.publishYear.toString()}</td>
                 <td>
-                  <ButtonsCell>
-                    <button onClick={() => toggleDetails(book.id)}>
+                  <ActionButtonsCell>
+                    <StyledButton onClick={() => toggleDetails(book.id)}>
                       <FaRegEye/>
-                    </button>
-                    <button onClick={() => editBook(book.id)}>
+                    </StyledButton>
+                    <StyledButton onClick={() => editBook(book.id)}>
                       <FaPen/>
-                    </button>
-                    <button onClick={() => deleteBook(book.id, book.title)}>
+                    </StyledButton>
+                    <StyledButton onClick={() => deleteBook(book.id, book.title)}>
                       <FaTrashAlt/>
-                    </button>
-                  </ButtonsCell>
+                    </StyledButton>
+                  </ActionButtonsCell>
                 </td>
               </tr>
             ),
@@ -83,7 +83,7 @@ export function BookList() {
         <tfoot>
           <tr>
             <td colSpan={4}>
-              <button onClick={addBook}>Adicionar Livro</button>
+              <StyledButton onClick={addBook}>Adicionar Livro</StyledButton>
             </td>
           </tr>
         </tfoot>

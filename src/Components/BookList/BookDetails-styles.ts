@@ -10,7 +10,7 @@ margin: 0;
 padding: 0;
 transition: 0.5s;
 text-align: left;
-background-color: #6822a9;
+background-color: #29004e;
 
 &.visible {
   max-height: 13em;

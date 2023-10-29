@@ -51,7 +51,7 @@ export function BookList() {
         <tbody>
           {books.map(book => [
             (
-              <tr key={book.id}>
+              <tr key={book.id} className="book-line">
                 <td>{book.title}</td>
                 <td>{book.author}</td>
                 <td>{book.publishYear.toString()}</td>

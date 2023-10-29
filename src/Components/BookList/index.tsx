@@ -1,6 +1,6 @@
 import { useContext, useState } from "react";
 import { BookDetails } from "./BookDetails";
-import {RootContainer} from './BookList-styles';
+import {ButtonsCell, RootContainer} from './BookList-styles';
 import {FaPen, FaRegEye, FaTrashAlt} from 'react-icons/fa';
 import { BooksContext } from "../../Context/books-context";
 import { useNavigate } from "react-router-dom";
@@ -56,15 +56,17 @@ export function BookList() {
                 <td>{book.author}</td>
                 <td>{book.publishYear.toString()}</td>
                 <td>
-                  <button onClick={() => toggleDetails(book.id)}>
-                    <FaRegEye/>
-                  </button>
-                  <button onClick={() => editBook(book.id)}>
-                    <FaPen/>
-                  </button>
-                  <button onClick={() => deleteBook(book.id, book.title)}>
-                    <FaTrashAlt/>
-                  </button>
+                  <ButtonsCell>
+                    <button onClick={() => toggleDetails(book.id)}>
+                      <FaRegEye/>
+                    </button>
+                    <button onClick={() => editBook(book.id)}>
+                      <FaPen/>
+                    </button>
+                    <button onClick={() => deleteBook(book.id, book.title)}>
+                      <FaTrashAlt/>
+                    </button>
+                  </ButtonsCell>
                 </td>
               </tr>
             ),

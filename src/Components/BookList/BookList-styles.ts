@@ -39,3 +39,7 @@ export const RootContainer = styled.div`
     padding: 1em;	
   }
 `;
+
+export const ButtonsCell = styled.div`
+  display: flex;
+`;

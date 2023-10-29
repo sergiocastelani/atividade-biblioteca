@@ -2,6 +2,7 @@ import { useContext, useEffect, useState } from "react";
 import { BooksContext } from "../../Context/books-context";
 import { useNavigate, useParams } from "react-router-dom";
 import { Book, BookClass, IBook } from "../../Model/Book";
+import { Container } from "./styles";
 
 function findBookOrThrow(books : IBook[], bookId:string)
 {
@@ -57,69 +58,66 @@ export function BookForm()
   }, [bookId]);
 
   return (
-    <form id="book-form">
-      <div>
-        <label>ID: </label><span>{book.id}</span><br/>
+    <Container>
+      <form id="book-form">
+        <label>ID: </label>
+        <div className="form-control">{book.id}</div>
 
         <label>Título<span>*</span></label>
-        <input 
-          type="text" 
-          className="form-control" 
-          name="title" 
-          id="title" 
-          required 
-          aria-required="true" 
+        <input
+          type="text"
+          className="form-control"
+          name="title"
+          id="title"
+          required
+          aria-required="true"
           value={book.title}
           onChange={e => setBook({...book, title: e.target.value})}
         />
-      </div>
-      <div>
+
         <label>Autor<span>*</span></label>
-        <input 
-          type="text" 
-          className="form-control" 
-          name="author" 
-          id="author" 
-          required 
-          aria-required="true" 
+        <input
+          type="text"
+          className="form-control"
+          name="author"
+          id="author"
+          required
+          aria-required="true"
           value={book.author}
           onChange={e => setBook({...book, author: e.target.value})}
         />
-      </div>
-      <div>
+
         <label>Ano de Publicação<span>*</span></label>
-        <input 
-          type="number" 
-          className="form-control" 
-          name="publishYear" 
-          value={book.publishYear.toString()} 
-          min="1600" 
-          max="2023" 
+        <input
+          type="number"
+          className="form-control"
+          name="publishYear"
+          value={book.publishYear.toString()}
+          min="1600"
+          max="2023"
           id="publishYear"
-          required 
+          required
           onChange={e => setBook({...book, publishYear: e.target.valueAsNumber})}
         />
-      </div>
-      <div>
+
         <label>Data de Cadastro<span>*</span></label>
-        <input 
-          type="date" 
-          className="form-control" 
-          name="registrationDate" 
-          id="registrationDate" 
+        <input
+          type="date"
+          className="form-control"
+          name="registrationDate"
+          id="registrationDate"
           required
           readOnly={bookId !== undefined}
           value={formatDate(book.registrationDate)}
           onChange={e => setBook({...book, registrationDate: e.target.valueAsDate || new Date()})}
         />
-      </div>
-      <div>
+
         <label>Gênero<span>*</span></label>
-        <select 
-          className="form-control" 
-          name="class" 
-          id="class" 
-          required 
+        <select
+          className="form-control"
+          name="class"
+          id="class"
+          required
           value={book.class}
           onChange={e => setBook({...book, class: e.target.value as BookClass})}
         >
@@ -127,23 +125,22 @@ export function BookForm()
           <option value="Lírico" id="class-1">Lírico</option>
           <option value="Dramático" id="class-2">Dramático</option>
         </select>
-      </div>
-      <div>
+
         <label>Descrição<span>*</span></label>
-        <textarea 
-          className="form-control" 
-          name="description" 
-          maxLength={300} 
-          rows={10} 
+        <textarea
+          className="form-control"
+          name="description"
+          maxLength={300}
+          rows={10}
           id="description"
-          required 
+          required
           value={book.description}
           onChange={e => setBook({...book, description: e.target.value})}
         >
         </textarea>
-      </div>
 
-      <button onClick={saveBook}>Salvar</button>
-    </form>
+        <button onClick={saveBook}>Salvar</button>
+      </form>
+    </Container>
   );
 }

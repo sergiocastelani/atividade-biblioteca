@@ -3,7 +3,7 @@ import { styled } from 'styled-components'
 export const RootContainer = styled.div`
   width: 80%;
   margin: 0 auto;
-  padding: 5em 0;
+  padding: 0 0 5em 0;
 
   & > table {
     color: #eec4ff;

@@ -22,8 +22,10 @@ export function BookForm()
 {
   const navigate = useNavigate();
 
-  function saveBook()
+  function onSaveBookClick(evt: any)
   {
+    evt.preventDefault();
+
     const form = document.getElementById("book-form") as HTMLFormElement;
     if (! form?.reportValidity())
       return;
@@ -139,7 +141,7 @@ export function BookForm()
         >
         </textarea>
 
-        <button onClick={saveBook}>Salvar</button>
+        <button onClick={onSaveBookClick}>Salvar</button>
       </form>
     </Container>
   );
